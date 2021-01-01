@@ -2,27 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>Rachele Morino | Portfolio</title>
   <meta name="description" content="Rachele Morino Website Portfolio">
   <link rel="stylesheet" type="text/css" href="main.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <nav role="navigation">
-        <ul class="navList col-2">
-            <li class="navItem"><a id="#webDev"><img alt="Web Development Section Icon" src="">Web Development</a></li>
-            <li class="navItem"><a id="#art"><img alt="Web Development Section Icon" src="">Art & Design</a></li>
-            <li class="navItem"><a id="#resume"><img alt="Web Development Section Icon" src="">Resume</a></li>
-            <li class="navItem"><a id="#contact"><img alt="Web Development Section Icon" src="">Contact</a></li>
+        <ul class="navList">
+            <li class="navItem" class="col-1"><a href="#webDev"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
+            <li class="navItem" class="col-1"><a href="#art"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
+            <li class="navItem" class="col-1"><a href="#resume"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg"></a></li>
+            <li class="navItem" class="col-1"><a href="#contact"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
         </ul>
     </nav>
     <main role="main">
-        <section role="contentinfo" id="home"></section>
-        <section role="contentinfo" id="webDev"></section>
-        <section role="contentinfo" id="art"></section>
-        <section role="contentinfo" id="resume"></section>
-        <section role="contentinfo" id="contact"></section>
+        <section role="contentinfo" id="home" class="col-1"></section>
+        <section role="contentinfo" id="webDev" class="col-1"></section>
+        <section role="contentinfo" id="art" class="col-1"></section>
+        <section role="contentinfo" id="resume" class="col-1"></section>
+        <section role="contentinfo" id="contact" class="col-1"></section>
+        <section role="button" id="scrollHome" class="col-1" hidden><a href="#home">Back To Top</a></section>
         <!-- fixed footer here when begin scrolling/when sidebar clikced that takes you back to top-->
     </main>
     <script
