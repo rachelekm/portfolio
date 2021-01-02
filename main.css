@@ -29,6 +29,11 @@ main {
     overflow-y: scroll;
 }
 
+main > section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .navList {
     list-style: none;
     margin: 0;
@@ -41,7 +46,7 @@ main {
     width: 25%;
 }
 
-.navItem > a {
+.navItem > a, .webItem > div, .resumeContents > .page-75 > a, .artItem > div {
     height: 100%;
     width: 100%;
     position: relative;
@@ -49,12 +54,38 @@ main {
     vertical-align: middle;
 }
 
-.navItem > a > img {
+img, .page-25 > div > button {
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.page-25 > div > button {
+    width: 80%;
+    height: 75%;
+}
+
+.webItem > div > a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.webItem > div > button, .artItem > div > button {
+    z-index: 1;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+}
+
+.resumeImg {
+    height: 90%;
+    width: auto;
 }
 
 .navText {
@@ -76,7 +107,7 @@ main {
     font-style: normal;
 }
 
-.introStyle > h1{
+.introStyle > h1, .artItemHeader{
     font-style: italic;
 }
 
@@ -103,6 +134,43 @@ main {
     vertical-align: middle;
 }
 
+.sectionHeader {
+    height: 10%;
+}
+
+.webList, .resumeContents, .artList {
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.webList, .artList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.webItem, .artItem{
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.webItemHeader, .webItemSubHeader{
+    height: 10%;
+    display: block;
+    overflow: hidden;
+}
+
+.webItemHeader {
+    font-style: italic;
+}
+
+.webItemSubHeader{
+    font-size: 10px;
+}
+
 .col-1 {
     width: 100%;
     height: 100%;
@@ -111,22 +179,50 @@ main {
 
 .col-2 {
     width: 50%;
+    height: 100%;
     display: inline-block;
 }
 
-.col-3 {
-    width: 33.33%;
-    display: inline-block;
+.page-75 {
+    width: 100%;
+    height: 85%;
+    display: block;
+    float: left;
 }
 
-.col-4 {
-    width: 25%;
-    display: inline-block;
+.page-25 {
+    width: 100%;
+    height: 15%;
+    display: block;
+    position: relative;
+    float: left;
 }
 
-.col-6 {
-    width: 16.66%;
+.page-25 > div {
+    height: 100%;
+    width: 50%;
     display: inline-block;
+    float: left;
+    position: relative;
+}
+
+@media only screen and (min-width: 450px) {
+    .webItem, .artItem{
+        padding-top: 10px;
+    }
+
+    .webItem > div > a > img, .artItem > div > img {
+        height: 80%;
+        width: auto;
+        top: 20%;
+        bottom: 0;
+        transform: translateX(-50%);
+    }
+
+    .artItem > div > img {
+        height: 90%;
+        top: 10%;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -135,7 +231,7 @@ main {
     }
 
     nav {
-        width: 34%;
+        width: 25%;
         height: 100%;
         position: fixed;
         right: 0;
@@ -143,7 +239,7 @@ main {
     }
 
     main {
-        width: 66%;
+        width: 75%;
         float: left;
         top: 0;
         padding-top: 0;
@@ -173,5 +269,57 @@ main {
 
     #home {
         height: 100%;
+    }
+
+    .webItem > div > button, .artItem > div > button {
+        width: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (min-width: 1028px) {
+    .resumeContents {
+        position: relative;
+    }
+
+    .page-75 {
+        width: 75%;
+        height: 100%;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .resumeImg {
+        height: 100%;
+    }
+    
+    .page-25 {
+        width: 25%;
+        height: 33%;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .page-25 > div {
+        height: 50%;
+        width: 100%;
+    }
+
+    .page-25 > div > button {
+        width: 85%;
+        height: 75%;
+    }
+
+    .artItem > div > img {
+        height: 90%;
+        position: absolute;
+        top: 10%;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%)
     }
 }
