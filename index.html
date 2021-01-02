@@ -15,19 +15,41 @@
 <body>
     <nav role="navigation">
         <ul class="navList">
-            <li class="navItem" class="col-1"><a href="#webDev"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
-            <li class="navItem" class="col-1"><a href="#art"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
-            <li class="navItem" class="col-1"><a href="#resume"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg"></a></li>
-            <li class="navItem" class="col-1"><a href="#contact"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
+            <li class="navItem" role="button" aria-pressed="true"><a href="#webDev"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
+            <li class="navItem" role="button" aria-pressed="false"><a href="#art"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
+            <li class="navItem" role="button" aria-pressed="false"><a href="#resume"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg"></a></li>
+            <li class="navItem" role="button" aria-pressed="false"><a href="#contact"><img alt="Web Development Section Icon" src="imgs/tempImage.jpg" ></a></li>
         </ul>
     </nav>
     <main role="main">
-        <section role="contentinfo" id="home" class="col-1"></section>
-        <section role="contentinfo" id="webDev" class="col-1"></section>
-        <section role="contentinfo" id="art" class="col-1"></section>
-        <section role="contentinfo" id="resume" class="col-1"></section>
-        <section role="contentinfo" id="contact" class="col-1"></section>
-        <section role="button" id="scrollHome" class="col-1" hidden><a href="#home">Back To Top</a></section>
+        <section role="contentinfo" id="home" class="col-1">
+            <div class='introStyle'>
+                <h1>Hi there,</h1>
+                <h2>I'm Rachele. I'm a creative front-end developer and embroidery artist.</h2>
+            </div>
+        </section>
+        <section role="contentinfo" id="webDev" class="col-1">
+            <div class='sectionHeader'>
+                <h1>Web</h1>
+            </div>
+        </section>
+        <section role="contentinfo" id="art" class="col-1">
+            <div class='sectionHeader'>
+                <h1>Art</h1>
+            </div>
+        </section>
+        <section role="contentinfo" id="resume" class="col-1">
+            <div class='sectionHeader'>
+                <h1>Resume</h1>
+            </div>
+        </section>
+        <section role="contentinfo" id="contact" class="col-1">
+            <div class='sectionHeader'>
+                <h1>Contact</h1>
+            </div>
+        </section>
+        <div class='scrollPrompt'>scroll down</div>
+        <section role="button" id="scrollHome" hidden><a href="#home">Back To Top</a></section>
         <!-- fixed footer here when begin scrolling/when sidebar clikced that takes you back to top-->
     </main>
     <script
