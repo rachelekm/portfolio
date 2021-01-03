@@ -9,11 +9,10 @@ let emailActions = {
                 from: `"Web Portfolio Contact" ${process.env.GMAIL_USER}`,
                 to: `${process.env.PERSONALEMAIL}`,
                 subject: 'You Have A New Email From Web Portfolio Form',
-                text: `Hi Rachele!
-                It looks like ${params.name} wants to get in touch. Here is the message:
-                ${params.message}
+                text: `Hi Rachele, It looks like ${params.name} wants to get in touch. Here is the message:
+                " ${params.message} "
                 Please reply to their contact email: ${params.email}
-                Autmated Web Portfolio Email sent: ${Date.now()}`
+                Autmated Web Portfolio Email sent: ${new Date(Date.now()).toLocaleString()}`
             };
       
             Transporter.smtpTransport.sendMail(mailOptions, function(error, info){

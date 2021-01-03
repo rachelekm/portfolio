@@ -38,9 +38,9 @@ app.get('/', (req, res) => {
 
 app.post('/email', jsonParser, (req, res) => {
     emailActions.sendEmail(req.body).then(() => {
-        return res.status(200).send('OK');
+        return res.status(200).send(JSON.stringify('OK'));
     }).catch(e => {
-        return res.status(500).send('Error sending email: ' + e);
+        return res.status(500).send(JSON.stringify('Error sending email: ' + e));
     });
 });
 

@@ -89,7 +89,7 @@
             <div class="resumeContents">
                     <div class='page-25'>
                         <div>
-                            <button role="button" aria-label="Download Resume File" class="openResume">Download</button>
+                            <a role="button" aria-label="Download Resume File" href="imgs/RacheleMorino_Resume_2020_web.pdf" download class="openResume">Download</a>
                         </div>
                         <div>
                             <button role="button" aria-label="Open Resume File In New Tab" class="downloadResume">Open In New Tab</button>
@@ -105,12 +105,28 @@
                 <h1>Contact</h1>
             </div>
             <div class=formBox>
-
+                <form>
+                    <legend>Have a question or want to get in touch?</legend>
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <textarea type="text" id="message" name="message" placeholder="Your Message" required></textarea>
+                    <input type="submit" id="submit" value="SUBMIT">
+                </form>
+                <div class="success" hidden>
+                    <button type="button" role="button" id="closeSuccess" aria-label="Close Confirmation Box">Close</button>
+                    <div class="successText">Your message has been sent! Thank you, I'll get in touch with you soon.</div>
+                </div>
+                <div class="formerror" hidden>
+                    <button type="button" role="button" id="closeError" aria-label="Close Confirmation Box">Close</button>
+                    <div class="errorText">Uh oh, looks like something went wrong. Please reach out to me at rachelekm@gmail.com.</div>
+                </div>
             </div>
             <div class='socialBox'>
-
+                <div class="iconItem"><a aria-label="Link to Github Profile" href=""><img alt="Github Icon" src="imgs/tempImage.jpg"></a></div>
+                <div class="iconItem"><a aria-label="Link to LinkedIn Profile" href=""><img alt="LinkedIn Icon" src="imgs/tempImage.jpg"></a></div>
+                <div class="iconItem"><a aria-label="Link to Instagram Profile" href=""><img alt="Instagram Icon" src="imgs/tempImage.jpg"></a></div>
             </div>
-            <button role="button" aria-label="Back To Top">Back To Top</button>
+            <div class='scrollTop'><button role="button" aria-label="Back To Top">Back To Top</button></div>
         </section>
         <div class='scrollPrompt'>scroll down</div>
         <section role="button" id="scrollHome" hidden><a href="#home">Back To Top</a></section>

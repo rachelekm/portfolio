@@ -54,7 +54,7 @@ main > section {
     vertical-align: middle;
 }
 
-img, .page-25 > div > button {
+img, .downloadResume, .openResume, .iconItem > a, form, .scrollTop > button, .successText, .errorText {
     width: 100%;
     position: absolute;
     top: 50%;
@@ -62,7 +62,11 @@ img, .page-25 > div > button {
     transform: translate(-50%, -50%);
 }
 
-.page-25 > div > button {
+.successText, .errorText {
+    width: 75%;
+}
+
+.downloadResume, .openResume, .iconItem > a {
     width: 80%;
     height: 75%;
 }
@@ -169,6 +173,65 @@ img, .page-25 > div > button {
 
 .webItemSubHeader{
     font-size: 10px;
+}
+
+.formBox {
+    width: 100%;
+    height: 60%;
+    position: relative;
+    display: block;
+}
+
+form > input, form > textarea {
+    width: 100%;
+    height: 40px;
+    display: block;
+}
+
+form > textarea {
+    height: 100px;
+}
+
+form > legend {
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success, .formerror {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: gray;
+    border: 1px solid red;
+}
+
+.success > button, .formerror > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.socialBox {
+    width: 100%;
+    height: 20%;
+    display: block;
+}
+
+.iconItem {
+    position: relative;
+    height: 100%;
+    width: 33%;
+    display: inline-block;
+    float: left;
+}
+
+.scrollTop {
+    width: 100%;
+    height: 10%;
+    position: relative;
+    display: block;
 }
 
 .col-1 {
@@ -309,7 +372,7 @@ img, .page-25 > div > button {
         width: 100%;
     }
 
-    .page-25 > div > button {
+    .downloadResume, .openResume {
         width: 85%;
         height: 75%;
     }

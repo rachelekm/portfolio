@@ -25,8 +25,12 @@ const mv = {
         };
     },
     populateDivPos: function(){
+        let currentVW = $(window).width();
         model.divPos.forEach(o => {
             let pos = $(`#${o.name}`).offset().top;
+            if(currentVW < 600){
+                pos -= 120;
+            }
             o.top = pos;
         });
     }
@@ -48,6 +52,40 @@ const cv = {
             let obj = model.divPos.find(o => o.name === dest);
             $('main').animate({ scrollTop: `${obj.top}px`}, 1000);
         });
+        $('form').submit(function(e) {
+            e.preventDefault();
+            let obj = {};
+            obj.name = $('#name').val();
+            obj.email = $('#email').val();
+            obj.message = $('#message').val();
+            $.ajax({
+                url: '/email', 
+                method: 'POST',  
+                data: JSON.stringify(obj),  
+                contentType:"application/json",
+                dataType: 'json',
+                beforeSend: function(xhr){xhr.setRequestHeader('Content-Type', 'application/json')},
+                success: cv.formSuccess,
+                error: cv.formError
+            });
+        });
+        $('.formBox').on('click', 'button', function(e){
+            e.stopPropagation();
+            $(`.${e.currentTarget.parentNode.className}`).hide();
+        });
+    },
+    formSuccess: function(o){
+        cv.resetForm();
+        $('.success').show();
+    },
+    formError: function(e){
+        cv.resetForm();
+        $('.formerror').show();
+    },
+    resetForm: function(){
+        $('#name').val('');
+        $('#email').val('');
+        $('#message').val('');
     }
 }
 
