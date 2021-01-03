@@ -32,6 +32,7 @@ main {
 main > section {
     padding-left: 20px;
     padding-right: 20px;
+    position: relative;
 }
 
 .navList {
@@ -46,7 +47,7 @@ main > section {
     width: 25%;
 }
 
-.navItem > a, .webItem > div, .resumeContents > .page-75 > a, .artItem > div {
+.navItem > a, .webItem > div, .resumeContents > .page-75 > a, .artItem > div, .zoomContents {
     height: 100%;
     width: 100%;
     position: relative;
@@ -54,12 +55,47 @@ main > section {
     vertical-align: middle;
 }
 
-img, .downloadResume, .openResume, .iconItem > a, form, .scrollTop > button, .successText, .errorText {
+img, .downloadResume, .openResume, .iconItem > a, form, .scrollTop > button, .successText, .errorText, .zoomLinkToWeb > a {
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.vAlign {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hAlign {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hoverPrompt {
+    z-index: 1;
+    text-align: center;
+    top: 20%;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    transform: none;
+}
+
+.scrollTop > button {
+    width: 20%;
+}
+
+form {
+    max-width: 600px;
 }
 
 .successText, .errorText {
@@ -71,25 +107,30 @@ img, .downloadResume, .openResume, .iconItem > a, form, .scrollTop > button, .su
     height: 75%;
 }
 
-.webItem > div > a {
+.webItem > div > button {
     width: 100%;
     height: 100%;
     position: absolute;
     bottom: 0;
     left: 0;
+    background: none;
+    border: none;
 }
 
-.webItem > div > button, .artItem > div > button {
+.webItem > div > a, .artItem > div > button {
     z-index: 1;
     position: absolute;
     bottom: 5%;
     left: 0;
     width: 100%;
+    background-color: white;
+    text-align: center;
+    border: 1px solid black;
 }
 
 .resumeImg {
-    height: 90%;
-    width: auto;
+    width: 100%;
+    height: auto;
 }
 
 .navText {
@@ -142,10 +183,95 @@ img, .downloadResume, .openResume, .iconItem > a, form, .scrollTop > button, .su
     height: 10%;
 }
 
-.webList, .resumeContents, .artList {
+.webList, .resumeContents, .artList, .zoomBox {
     height: 90%;
     width: 100%;
     overflow: hidden;
+}
+
+.zoomBox {
+    position: absolute;
+    width: calc(100% - 40px);
+    background-color: white;
+    z-index: 2;
+}
+
+.zbArt > img {
+    width: 100%;
+    height: auto;
+}
+
+.zoomWebImg {
+    height: 20%;
+    width: 50%;
+    float: left;
+    position: absolute;
+    bottom: 0;
+}
+
+.zoomWebImg > img {
+    height: 100%;
+    width: auto;
+}
+
+.zoomLinkToWeb {
+    width: calc(50% - 20px);
+    margin-right: 20px;
+    float: right;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.zoomLinkToWeb > a {
+    width: 75%;
+    text-align: center;
+}
+
+.zoomTextBox {
+    height: 80%;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 0px;
+    position: absolute;
+    display: inline-block;
+    float: left;
+}
+
+.zoomHeader, .zoomTech, .zoomSummary {
+    width: 100%;
+    height: 30%;
+    display: block;
+    position: relative;
+    float: left;
+}
+
+.zoomHeader {
+    height: 10%;
+}
+
+.zoomHeader > h1 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.zoomSummary {
+    height: 60%; 
+    overflow-y: scroll;
+}
+
+.zoomSummary > p {
+    font-size: 9.5px;
+}
+
+.techBox {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 2px;
+    font-size: 8px;
+    padding: 5px;
 }
 
 .webList, .artList {
@@ -207,10 +333,16 @@ form > legend {
     border: 1px solid red;
 }
 
-.success > button, .formerror > button {
+.success > button, .formerror > button, .closeZoom {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.closeZoom {
+    width: 30px;
+    height: 30px;
+    z-index: 5;
 }
 
 .socialBox {
@@ -269,12 +401,76 @@ form > legend {
     position: relative;
 }
 
-@media only screen and (min-width: 450px) {
+@media only screen and (min-width: 360px){
+    .zoomHeader > h1 {
+        font-size: 18px;
+    }
+    .techBox {
+        font-size: 10px;
+    }
+    .zoomSummary > p {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (min-width: 375px) and (min-height: 812px){
+    .zoomHeader > h1 {
+        font-size: 25px;
+    }
+    .techBox {
+        font-size: 13px;
+    }
+    .zoomSummary > p {
+        font-size: 13.5px;
+    }
+}
+
+@media only screen and (min-width: 411px) {
+    .zoomHeader > h1 {
+        font-size: 25px;
+    }
+    .techBox {
+        font-size: 12px;
+    }
+    .zoomSummary > p {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 411px) and (min-height: 822px){
+    .zoomHeader > h1 {
+        font-size: 25px;
+    }
+    .techBox {
+        font-size: 14px;
+    }
+    .zoomSummary > p {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 540px) {
     .webItem, .artItem{
         padding-top: 10px;
     }
 
-    .webItem > div > a > img, .artItem > div > img {
+    .techBox {
+        font-size: 14px;
+    }
+
+    .zoomSummary { 
+        height: 50%;
+    }
+
+    .zoomWebImg, .zoomLinkToWeb {
+        height: 30%;
+    }
+
+    .zoomSummary > p {
+        font-size: 14px;
+    }
+
+    .webItem > div > button > img, .artItem > div > img {
         height: 80%;
         width: auto;
         top: 20%;
@@ -285,6 +481,15 @@ form > legend {
     .artItem > div > img {
         height: 90%;
         top: 10%;
+    }
+
+    .resumeContents {
+        position: relative;
+    }
+
+    .resumeImg {
+        height: 100%;
+        width: auto;
     }
 }
 
@@ -319,8 +524,8 @@ form > legend {
         overflow: hidden;
     }
     .navItem > a > img {
-        height: 100%;
-        width: auto;
+        width: 100%;
+        height: auto;
         position: relative;
         top: 0;
         left: 0;
@@ -334,16 +539,80 @@ form > legend {
         height: 100%;
     }
 
-    .webItem > div > button, .artItem > div > button {
+    .webItem > div > a, .artItem > div > button {
         width: 80%;
         left: 50%;
         transform: translateX(-50%);
     }
+
+    .iconItem > a > img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .navItem > a > img {
+        height: 100%;
+        width: auto;
+    }
+
+    .zbWeb {
+        padding-bottom: 30px;
+    }
+
+    .zoomWebImg, .zoomTextBox {
+        height: 90%;
+        width: 50%;
+        padding: 20px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .zoomWebImg > img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .zoomHeader, .zoomTech, .zoomSummary, .zoomLinkToWeb {
+        width: 100%;
+        display: block;
+        position: relative;
+        float: left;
+    }
+
+    .zoomTech {
+        height: 30%;
+    }
+
+    .techBox, .zoomSummary > p {
+        font-size: 12px;
+    }
+    
+    .zoomHeader, .zoomLinkToWeb {
+        height: 10%;
+    }
+    
+    .zoomHeader > h1 {
+        margin: 0;
+        font-size: 25px;
+    }
+    
+    .zoomSummary {
+        height: 60%; 
+    }
+    
+    .zoomLinkToWeb > a {
+        max-width: 500px;
+        padding: 10px;
+        border: 1px solid black;
+    }
 }
 
 @media only screen and (min-width: 1028px) {
-    .resumeContents {
-        position: relative;
+    .techBox, .zoomSummary > p {
+        font-size: 14px;
     }
 
     .page-75 {
@@ -352,10 +621,6 @@ form > legend {
         position: relative;
         display: inline-block;
         float: left;
-    }
-
-    .resumeImg {
-        height: 100%;
     }
     
     .page-25 {
