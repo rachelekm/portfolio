@@ -21,7 +21,12 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/build', jsonParser, (req, res) => {
+app.post('/email', jsonParser, (req, res) => {
+    emailActions.sendEmail(req.body).then(o => {
+        return res.status(200).send('OK');
+    }).catch(e => {
+        return res.status(500).send('Error sending email: ' + e);
+    });
 });
 
 let server;
