@@ -4,7 +4,22 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
-const { emailActions } = require('./emailModel');
+const { emailActions } = require('./manageEmail');
+const { Transporter } = require('./nodemailerModel');
+
+Transporter.createTransportObject();
+
+process.on('SIGTERM', function (err) {
+    Transporter.smtpTransport.close();
+    if(err){ console.log(err) }; 
+    process.exit(err ? 1 : 0);
+});
+
+process.on('uncaughtException', function (err) {
+    Transporter.smtpTransport.close();  
+    if(err){ console.log(err) };
+    process.exit(1)
+});
 
 const app = express();
 app.use(morgan('common'));
@@ -22,7 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/email', jsonParser, (req, res) => {
-    emailActions.sendEmail(req.body).then(o => {
+    emailActions.sendEmail(req.body).then(() => {
         return res.status(200).send('OK');
     }).catch(e => {
         return res.status(500).send('Error sending email: ' + e);
