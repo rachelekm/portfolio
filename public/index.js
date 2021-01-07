@@ -12,25 +12,25 @@ const model = {
         tech: ['HTML', 'CSS', 'JS', 'jQuery', 'Shopify Liquid', 'Node.js', 'Express', 'MongoDB', 'AWS S3', 'Autodesk SketchBook'],
         text: 'This is a side project, currently active on Shopify with back-end API deployed on Heroku. All graphics created with Sketchbook. Users can desgin a custom map embroidery pattern by choosing a location, map style, shape, size, or by adding text. After purchase, their embroidery pattern is generated as part of a custom PDF, inlcuding: dynamic instructions, color guides, and stitch guides. After the PDF is built and stored, the customer is automatically emailed a private download link for their custom pattern PDF, available for 24 hours.',
         img_alt: 'Blue Dot Crafts Mobile And Desktop Website',
-        img_url: 'imgs/tempImage.jpg',
+        img_url: 'imgs/bdcWebMobile1.jpg',
         link: 'https://bluedotcrafts.com/'},
         {name: 'Parks & Rex App',
         tech: ['HTML', 'CSS', 'JS', 'jQuery', 'Autodesk SketchBook'],
         text: 'This is a personal project, I developed a recommendation application for fossil-collecting. A geology major and former environmental educator, I wanted to create an easy, interactive way to learn about local geologic history for educational contexts and amateur naturalists. Users submit their address and preferred search radius, and ten public parks are recommended and displayed along with local fossil and geologic history. Park recommendations are made based on local prominence and distance. All graphics created with Sketchbook.',
         img_alt: 'Parks & Rex Mobile And Desktop Website',
-        img_url: 'imgs/tempImage.jpg',
-        link: 'https://github.com/rachelekm/ParksAndRex'},
+        img_url: 'imgs/parksRexWebMobile.jpg',
+        link: 'https://rachelekm.github.io/ParksAndRex/'},
         {name: 'Goodnight App',
         tech: ['HTML', 'CSS', 'JS', 'jQuery', 'Node.js', 'Express', 'Mocha/Chai', 'Passport.js', 'MongoDB', 'Mongoose', 'Autodesk SketchBook'],
         text: "This is a personal project, I developed a diary application for better dream journaling: users create an account to enter dreams; view their previous entries; search by tags, life events, emotion; or use the interactive homepage calendar to discover relationships between their dream life and waking life. Featues: CRUD application (add new dream, read all dreams, update, delete); enter a unique dream once per day; search dreams by keywords, moods, or content; see most commonly dreamt symbols in the last 30 days and interact with homepage calendar. All graphics created with Sketchbook.",
         img_alt: 'Goodnight App Mobile And Desktop Website',
-        img_url: 'imgs/tempImage.jpg',
-        link: 'https://github.com/rachelekm/GoodnightApp/blob/master/README.md'},
+        img_url: 'imgs/goodnightWebMobile.png',
+        link: 'https://thegoodnightapp.herokuapp.com/'},
         {name: 'Egg Quiz App',
         tech: ['HTML', 'CSS', 'JS', 'jQuery', 'Autodesk SketchBook'],
         text: 'This is a personal project I developed while gaining familiarity with JavaScript. This is a quiz app that tests user knowledge of odd egg facts, and populates the egg carton for every correct answer. All graphics created with Sketchbook.',
         img_alt: 'Egg Quiz Mobile And Desktop Website',
-        img_url: 'imgs/tempImage.jpg',
+        img_url: 'imgs/eggQuizWebMobile_zoom.jpg',
         link: 'https://rachelekm.github.io/EggQuizUpdates/'}
     ]
 }
@@ -64,7 +64,7 @@ const mv = {
         let select = $(target).find('.webItemHeader')[0].innerText;
         let obj = model.webProjects.find(o => o.name === select);
         let techSection = obj.tech.map(elem => `<div class="techBox">${elem}</div>`)
-        let html = `<button role="button" aria-label="Close Zoom" aria-pressed="true" class="closeZoom"></button>
+        let html = `<button role="button" aria-label="Close Zoom" aria-pressed="true" class="closeZoom buttonDecoZoom">X</button>
         <div class="zoomContents">
             <div class="zoomWebImg"><img alt="${obj.img_alt} Zoomed In" src=${obj.img_url}></div>
             <div class="zoomTextBox">
@@ -75,7 +75,7 @@ const mv = {
                 <div class="zoomSummary"><p>${obj.text}</p></div>
             </div>
             <div class="zoomLinkToWeb">
-                <a href="${obj.link}" class="vAlign" target="_blank" role="button" aria-label="Click To Open Web Project">Open Project</a>
+                <a href="${obj.link}" class="vAlign buttonDecoZoom" target="_blank" role="button" aria-label="Click To Open Web Project">OPEN PROJECT</a>
             </div>
         </div>`
         $('.zbWeb').append(html);
@@ -113,7 +113,7 @@ const cv = {
             e.stopPropagation();
             let url = e.currentTarget.previousElementSibling.src;
             let alt = e.currentTarget.previousElementSibling.alt;
-            $('.zbArt').append(`<button role='button' aria-label='Close Zoom' aria-pressed='true' class='closeZoom'></button><img alt='${alt} Zoomed In' src=${url}>`);
+            $('.zbArt').append(`<button role='button' aria-label='Close Zoom' aria-pressed='true' class='closeZoom buttonDecoZoom'>X</button><img alt='${alt} Zoomed In' src=${url}>`);
             $('.zbArt').show();
         }),
         $('form').submit(function(e) {
