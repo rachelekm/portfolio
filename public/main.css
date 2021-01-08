@@ -131,6 +131,7 @@ form {
 
 .iconItem > a{
     height: 75%;
+    max-width: 70px;
 }
 
 .webItem > div > button {
@@ -376,6 +377,7 @@ form > legend {
     padding-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    color: black;
 }
 
 .success, .formerror {
@@ -645,11 +647,6 @@ form > legend {
         transform: translateX(-50%);
     }
 
-    .iconItem > a > img {
-        height: 100%;
-        width: auto;
-    }
-
     .zbArt > img {
         height: 100%;
         width: auto;
@@ -818,9 +815,13 @@ form > legend {
     .webItem > div > a, .artItem > div > button {
         font-size: 20px;
     }
-    .zoomWebImg > img, .zbArt > img{
+    .zoomWebImg > img{
         width: 100%;
         height: auto;
+    }
+    .zbArt > img {
+        height: 100%;
+        max-height: 800px;
     }
     .zoomHeader > h1 {
         font-size: 35px;
@@ -843,7 +844,7 @@ form > legend {
 
 @media only screen and (min-width: 1100px) {
     .page-25 {
-        left: 60%;
+        left: 65%;
     }
 }
 
@@ -885,7 +886,7 @@ form > legend {
         font-size: 50px;
     }
 
-    .zoomWebImg > img, .zbArt > img{
+    .zoomWebImg > img{
         width: 100%;
         height: auto;
     }
